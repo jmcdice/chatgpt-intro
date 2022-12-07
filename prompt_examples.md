@@ -10,6 +10,7 @@ Create a bash script with three functions. Each function should create kubernete
 Azure or GCP. It should read all environment variables from a file called env.sh. Provide a sample env.sh file.  
 ```
 Results
+
 ![screenshot 1](ss-1.png "chatgpt output")
 ![screenshot 1](ss-2.png "chatgpt output")
 
@@ -18,6 +19,7 @@ Here's an example of asking the AI to extend the program and add a feature.
 Now, add a function that saves the cluster data in a json file, one for each cluster. 
 ```
 Results
+
 ![screenshot 1](ss-3.png "chatgpt output")
 
 #### Helm Deploy an Application 
