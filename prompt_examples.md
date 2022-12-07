@@ -1,5 +1,7 @@
 # Example ChatGPT Prompts
 
+A GPT-3 prompt is a set of instructions or information that is provided to the GPT-3 model to guide it in generating text. The prompt typically includes a prompt string and other details that help the model understand the context and content of the text that it is generating. The prompt can be used to specify the topic, style, and tone of the generated text, as well as other parameters that influence the model's output.
+
 ## Prompting to Write a bash Script
 
 #### Write a bash script
