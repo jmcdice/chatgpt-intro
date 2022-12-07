@@ -8,17 +8,33 @@ A GPT-3 prompt is a set of instructions or information that is provided to the G
 ```console
 Create a bash script with three functions. Each function should create kubernetes cluster on either AWS, 
 Azure or GCP. It should read all environment variables from a file called env.sh. Provide a sample env.sh file.  
-- Now, add a function that saves the cluster data in a json file, one for each cluster. 
 ```
+Results
+![screenshot 1](ss-1.png "chatgpt output")
+![screenshot 1](ss-2.png "chatgpt output")
+
+Here's an example of asking the AI to extend the program and add a feature.
+```console
+Now, add a function that saves the cluster data in a json file, one for each cluster. 
+```
+Results
+![screenshot 1](ss-3.png "chatgpt output")
 
 #### Helm Deploy an Application 
+
+Next, we'll want to deploy an application to each cluster. I've chosen to use helm to do that and asked the AI to assist.
+
 ```console
 Provide a working example of using helm to deploy an application to each cluster.  
 ```
 
+Results
+![screenshot 1](ss-4.png "chatgpt output")
+![screenshot 1](ss-5.png "chatgpt output")
+
 #### Add a Project README
 ```console
-Write a README markdown file which describes this project and how to use it. Include requirements.  
+Great, now please write a README markdown file which describes this project, how to use it and include any dependencies that are needed to run it. Please include the markdown tags.
 ```
 
 ## Application Deployment Automation
