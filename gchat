@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Set the default OpenAI model to use
-#DEFAULT_MODEL="text-davinci-003"
-DEFAULT_MODEL="text-davinci-003-render"
+DEFAULT_MODEL="text-davinci-003"
 
 # Set the default maximum length for responses
 DEFAULT_MAX_LENGTH=3500
