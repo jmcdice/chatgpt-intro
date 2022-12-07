@@ -5,9 +5,7 @@ A GPT-3 prompt is a set of instructions or information that is provided to the G
 ## Prompting to Write a bash Script
 
 #### Write a bash script
-```console
-Create a bash script with three functions. Each function should create kubernetes cluster on either AWS, Azure or GCP. It should read all environment variables from a file called env.sh. Provide a sample env.sh file.  
-```
+```Create a bash script with three functions. Each function should create kubernetes cluster on either AWS, Azure or GCP. It should read all environment variables from a file called env.sh. Provide a sample env.sh file.```
 Results
 
 ![screenshot 1](ss-1.png "chatgpt output")
