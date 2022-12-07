@@ -39,8 +39,6 @@ function openai_response() {
         https://api.openai.com/v1/engines/${OPENAI_MODEL}/completions)
         #https://chat.openai.com/backend-api/conversation/)
 
-    echo $response > response.json
-
     # Check for errors
     if [ $? -ne 0 ]
     then
@@ -48,8 +46,6 @@ function openai_response() {
         return 1
     fi
 
-    # Parse the response to extract the generated text
-    #response_text=$(echo $response | jq -r ".choices[0].text" | fmt)
     response_text=$(echo $response | jq -r ".choices[0].text" )
 
     # Return the response
