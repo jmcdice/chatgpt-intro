@@ -31,6 +31,7 @@ Provide a working example of using helm to deploy an application to each cluster
 ```
 
 Results
+
 ![screenshot 1](ss-4.png "chatgpt output")
 ![screenshot 1](ss-5.png "chatgpt output")
 
