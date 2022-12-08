@@ -23,6 +23,15 @@ Results
 
 ![screenshot 1](ss-3.png "chatgpt output")
 
+Let's document the prerequisite's. 
+```console
+Would you please document the necessary CLI tools?
+```
+
+Results
+
+![screenshot 1](ss-6.png "chatgpt output")
+
 #### Helm Deploy an Application 
 
 Next, we'll want to deploy an application to each cluster. I've chosen to use helm to do that and asked the AI to assist.
@@ -38,8 +47,13 @@ Results
 
 #### Add a Project README
 ```console
-Great, now please write a README markdown file which describes this project, how to use it and include any dependencies that are needed to run it. Please include the markdown tags.
+Awesome, now please generate a README file that I can add to a git repo which describes this project. 
 ```
+
+Results
+
+![screenshot 1](ss-7.png "chatgpt output")
+![screenshot 1](ss-8.png "chatgpt output")
 
 ## Application Deployment Automation
 
