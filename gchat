@@ -46,6 +46,12 @@ function openai_response() {
         return 1
     fi
 
+    error_message=$(echo $response | jq -r '.error.message')
+    if [ -n "$error_message" ]; then
+        echo "Error: $error_message"
+        exit 1
+    fi
+
     response_text=$(echo $response | jq -r ".choices[0].text" )
 
     # Return the response
