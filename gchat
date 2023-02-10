@@ -1,82 +1,24 @@
 #!/usr/bin/env bash
 
-# Set the default OpenAI model to use
-DEFAULT_MODEL="text-davinci-003"
-
-# Set the default maximum length for responses
-DEFAULT_MAX_LENGTH=3500
-
-# Set the default prompt
-DEFAULT_PROMPT="What's on your mind?
->>> "
-
-# Set default values if necessary
-OPENAI_MODEL=${OPENAI_MODEL:-$DEFAULT_MODEL}
-MAX_LENGTH=${MAX_LENGTH:-$DEFAULT_MAX_LENGTH}
-PROMPT=${PROMPT:-$DEFAULT_PROMPT}
-
 # Check that the API key was provided
-if [ -z "$OPENAI_API_KEY" ]
-then
+if [ -z "$OPENAI_API_KEY" ]; then
     echo "Error: Please export \$OPENAI_API_KEY."
     exit 1
 fi
 
-function openai_response() {
-    # Set the prompt to use
-    PROMPT="$1"
-    INPUT="$2"
+PROMPT='Whats on your mind?'
+echo $PROMPT
+read -p '>>> ' INPUT
 
-    # If INPUT is empty, read it from the user
-    if [ -z "$INPUT" ]; then
-        read -p "$PROMPT" INPUT
-    fi
+response=$(curl -s https://api.openai.com/v1/completions \
+   -H 'Content-Type: application/json' \
+   -H "Authorization: Bearer $OPENAI_API_KEY" \
+   -d "{
+   \"model\": \"text-davinci-003\",
+   \"prompt\": \"$INPUT\",
+   \"max_tokens\": 2048,
+   \"temperature\": 0
+}")
 
-    # Make the API request
-    response=$(curl -s -X POST -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $OPENAI_API_KEY" \
-        -d "{\"prompt\":\"$INPUT\",\"max_tokens\":$MAX_LENGTH}" \
-        https://api.openai.com/v1/engines/${OPENAI_MODEL}/completions)
-        #https://chat.openai.com/backend-api/conversation/)
-
-    # Check for errors
-    if [ $? -ne 0 ]
-    then
-        echo "Error: API request failed"
-        return 1
-    fi
-
-    error_message=$(echo $response | jq -r '.error.message')
-    if [ -n "$error_message" ]; then
-        echo "Error: $error_message"
-        exit 1
-    fi
-
-    response_text=$(echo $response | jq -r ".choices[0].text" )
-
-    # Return the response
-    echo "$response_text"
-    echo 
-
-    read -n 1 -p "Modify question? [y/n]: " response
-    echo
-
-    # Check the response
-    case $response in
-        [Yy])
-            read -e -i "$INPUT" -p ">>> " EDITED_INPUT
-            openai_response "$DEFAULT_PROMPT" "$EDITED_INPUT"
-            ;;
-        [Nn])
-            ;;
-        *)
-            echo "invalid"
-    esac
-}
-
-# Start the main loop
-while :
-do
-   #clear
-   openai_response "$DEFAULT_PROMPT"
-done
+response_text=$(echo $response | jq -r ".choices[0].text" )
+echo $response_text
